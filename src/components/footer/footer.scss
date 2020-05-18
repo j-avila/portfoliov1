@@ -1,0 +1,39 @@
+@import "../../assets/mixins.scss";
+footer {
+  z-index: 2;
+  position: relative;
+  width: 100vw;
+  background: $text;
+  padding: 0.5rem 0;
+  text-align: center;
+  .content {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 400px;
+    p {
+      color: white;
+      vertical-align: middle;
+    }
+    ul {
+      list-style-type: none;
+      li {
+        color: $highlight;
+        display: inline-block;
+        margin: 0 0.3rem;
+        a {
+          color: $highlight;
+          transition: 0.4s all ease-in;
+          i {
+            font-size: large;
+          }
+          &:hover {
+            color: lighten($text, 60%);
+            transition: 0.2s all ease-in;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import "../../assets/mixins.scss";
+
+.about {
+  .head {
+    @include header();
+  }
+  section {
+    margin: 1rem auto;
+    max-width: $maxScreen;
+    display: flex;
+    justify-content: space-between;
+    h4 {
+      font-family: $stack;
+      font-weight: 100;
+    }
+    .formation {
+      margin-left: 1rem;
+    }
+  }
+  article {
+    margin: 1rem 0;
+    padding: 1rem;
+    h2 {
+      color: $highlight;
+    }
+  }
+
+  @media all and(max-width: 400px) {
+    section {
+      flex-direction: column;
+      .experience,
+      .formation {
+        margin: 0 auto;
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media all and (max-width: 900px) {
+    .aboutme,
+    section {
+      padding: 0 1rem;
+    }
+  }
+}

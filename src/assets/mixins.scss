@@ -1,0 +1,67 @@
+// colors
+$highlight: #8bc34a;
+$text: #171717;
+
+// fonts
+@font-face {
+  font-family: "producSansRegular";
+  src: url("./fonts/ProductSansRegular.eot");
+  src: url("./fonts/ProductSansRegular.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/ProductSansRegular.woff") format("woff"),
+    url("./fonts/ProductSansRegular.ttf") format("truetype"),
+    url("./fonts/ProductSansRegular.svg#ProductSansRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "producSansBold";
+  src: url("./fonts/ProductSansBold.eot");
+  src: url("./fonts/ProductSansBold.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/ProductSansBold.woff") format("woff"),
+    url("./fonts/ProductSansBold.ttf") format("truetype"),
+    url("./fonts/ProductSansBold.svg#ProductSansBold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$stack: "producSansRegular", sans-serif;
+$head: "producSansBold", sans-serif;
+
+// queries
+$maxScreen: 800px;
+
+// mixins
+
+@mixin separator($width, $color, $margin) {
+  &:after {
+    content: "";
+    display: block;
+    width: $width;
+    height: 1px;
+    background: $color;
+    margin: $margin;
+  }
+}
+
+@mixin header() {
+  max-width: $maxScreen;
+  margin: 0 auto;
+  padding: 0 1rem;
+  h1 {
+    font-size: 2.5em;
+    span {
+      text-transform: capitalize;
+      color: $highlight;
+    }
+  }
+  p {
+    font-size: 1.45em;
+    max-width: 80%;
+    span {
+      color: $highlight;
+      text-decoration: underline;
+    }
+  }
+  @include separator(100%, lighten($text, 80%), 2rem 0 1rem);
+}

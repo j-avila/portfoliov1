@@ -1,0 +1,11 @@
+@import "../../assets/mixins.scss";
+.aboutme {
+  @include header();
+}
+
+@media all and (max-width: 900px) {
+  .aboutme,
+  section {
+    padding: 0 1rem;
+  }
+}

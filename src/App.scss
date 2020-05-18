@@ -1,38 +1,45 @@
+@import "../src/assets/mixins.scss";
+
+h1 {
+  font-family: $head;
+  font-size: large;
+}
+
+p {
+  font-size: medium;
+  font-family: $stack;
+  color: lighten($text, 40%);
+}
+
+a {
+  color: $highlight;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: lighten($text, 20%);
+}
+::-webkit-scrollbar-thumb {
+  background: $highlight;
+}
+::selection {
+  background: lighten($text, 20%);
+  color: $highlight;
+}
+
+body {
+  font-family: $stack;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  margin: 0 auto;
+  overflow-x: hidden;
+  &.darkmode {
+    background: $text;
+    color: white;
+    a {
+      color: lighten($text, 60%);
+    }
   }
 }
