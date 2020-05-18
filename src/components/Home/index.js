@@ -29,7 +29,3 @@ export const Home = (props) => {
     </div>
   );
 };
-
-/* cost worksUrl = 'http://joseavila.co.ve/wp-portfolio/wp-json/wp/v2/trabajos?_embed';
-cost workUrl = 'http://joseavila.co.ve/wp-portfolio/wp-json/wp/v2/trabajos&per_page=10';
-cost siteInfo = 'http://joseavila.co.ve/wp-portfolio/wp-json/'; */
