@@ -4,6 +4,9 @@
   .head {
     @include header();
   }
+  .block {
+    width: 100%;
+  }
   section {
     margin: 1rem auto;
     max-width: $maxScreen;

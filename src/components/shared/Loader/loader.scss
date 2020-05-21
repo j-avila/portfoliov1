@@ -1,0 +1,37 @@
+@import "../../../assets/mixins.scss";
+
+.loader {
+  @include loadStrip();
+  margin: 0 auto;
+  max-width: $maxScreen;
+  margin-bottom: 4rem;
+  opacity: 0.1;
+  &:nth-child(1) {
+    opacity: 1;
+  }
+  &:nth-child(2) {
+    opacity: 0.5;
+  }
+  &:nth-child(3) {
+    opacity: 0.3;
+  }
+  &:nth-child(3) {
+    opacity: 0.2;
+  }
+
+  .skeleton-image {
+    @include loadStrip();
+    height: 400px !important;
+    width: 100% !important;
+    margin-bottom: 4rem;
+  }
+  .title {
+    width: 70%;
+    margin-bottom: 2rem;
+    .line {
+      &:nth-child(1) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

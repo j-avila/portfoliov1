@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 import "./portfolio.scss";
+import Loader from "../Loader";
+import { useSelector } from "react-redux";
 
 const PortItem = (props) => {
   const { data } = props;
@@ -19,7 +21,7 @@ const PortItem = (props) => {
         <Link
           to={{
             pathname: `/work/${slug}`,
-            postData: data,
+            urlPath: slug,
           }}
         >
           <h1>{title.rendered}</h1>
@@ -33,11 +35,20 @@ const PortItem = (props) => {
 
 const Portfolio = (props) => {
   const { items } = props;
+  const [works, setWorks] = useState([]);
+  const { loading } = useSelector((state) => state.loading);
+
+  useEffect(() => {
+    setWorks(items);
+  }, [items]);
+
   return (
     <>
-      {items.length >= 1
-        ? items.map((post) => <PortItem key={post.id} data={post} />)
-        : "loading"}
+      {works.data && works.data.length >= 1 && !loading ? (
+        works.data.map((post) => <PortItem key={post.id} data={post} />)
+      ) : (
+        <Loader lines={4} />
+      )}
     </>
   );
 };

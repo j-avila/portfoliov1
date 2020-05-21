@@ -1,6 +1,7 @@
 // colors
 $highlight: #8bc34a;
 $text: #171717;
+$darkBg: #1c2833;
 
 // fonts
 @font-face {
@@ -64,4 +65,64 @@ $maxScreen: 800px;
     }
   }
   @include separator(100%, lighten($text, 80%), 2rem 0 1rem);
+}
+
+@mixin loadStrip() {
+  border-bottom: solid 1px lightgrey;
+  padding: 15px 10px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .line {
+    display: block;
+    // float: left;
+    height: 12px;
+    width: 100%;
+    animation: skeleton-loader-shimmer 1s linear infinite forwards;
+    background: #eee;
+    background-image: gradient(
+      linear,
+      left center,
+      right center,
+      from(#333),
+      color-stop(0.2, #333),
+      color-stop(0.4, #333),
+      to(#333)
+    );
+    background-image: linear-gradient(
+      to right,
+      #eee 0%,
+      #ccc 20%,
+      #ddd 40%,
+      #eee 100%
+    );
+    background-repeat: no-repeat;
+    // background-size: 800px 104px;
+    border-radius: 3px;
+    &:first-child {
+      height: 2em;
+    }
+
+    &:not(:first-child) {
+      width: 100%;
+      margin: 10px 10px 0 0;
+    }
+    &:nth-child(2) {
+      width: 77%;
+      clear: both;
+    }
+    &:nth-child(3) {
+      width: 20%;
+    }
+  }
+}
+
+@keyframes skeleton-loader-shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
 }

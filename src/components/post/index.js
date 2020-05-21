@@ -1,27 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import parse from "html-react-parser";
 import "./post.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getProject } from "../../store/actions";
+import Loader from "../shared/Loader";
 
 export const Post = (props) => {
   const location = useLocation();
-  const { title, excerpt, content, link } = location.postData;
+  const dispatch = useDispatch();
+  const work = useSelector((state) => state.currentProject);
+  const { loading } = useSelector((state) => state.loading);
+
+  useEffect(() => {
+    dispatch(getProject(location.urlPath));
+  }, []);
 
   return (
     <article>
-      {props && content ? (
+      {work && work.project && !loading ? (
         <>
           <div className="postHead">
-            <h1>{title.rendered}</h1>
-            {parse(excerpt.rendered)}
+            <h1>{work.project.title.rendered}</h1>
+            {parse(work.project.excerpt.rendered)}
           </div>
-          <div className="content">{parse(content.rendered)}</div>
-          <a className="linkBut" href={link}>
+          <div className="content">{parse(work.project.content.rendered)}</div>
+          <a className="linkBut" href={work.project.link}>
             ver proyecto
           </a>
         </>
       ) : (
-        "loading..."
+        <Loader type="post" />
       )}
     </article>
   );

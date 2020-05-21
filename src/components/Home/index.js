@@ -3,17 +3,16 @@ import { useSelector, useDispatch } from "react-redux";
 import Portfolio from "../shared/portfolio";
 import { dummyWorks } from "../../assets/dummy";
 import "./home.scss";
-import { worksUrl } from "../../store/envConst";
 import { fetchWorks } from "../../store/actions";
 
 const desc =
   "Soy un desarrollador web con una pasión por aprender constantemente, la tecnología y por el café. Actualmente me encuentro";
 
 export const Home = (props) => {
-  const worksData = useSelector((state) => state);
+  const worksData = useSelector((state) => state.works);
+  const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
 
-  console.log(worksUrl);
   const {
     name = "jose avila",
     description = desc,
@@ -36,7 +35,7 @@ export const Home = (props) => {
         </p>
       </div>
       <section>
-        <Portfolio items={dummyWorks} />
+        <Portfolio items={worksData} />
       </section>
     </div>
   );
