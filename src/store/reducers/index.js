@@ -34,6 +34,17 @@ const currentProject = (state = [], action) => {
   }
 };
 
+const githubStats = (state = [], action) => {
+  switch (action.type) {
+    case types.GET_STATS:
+      return {
+        codeStats: action.stats,
+      };
+    default:
+      return state;
+  }
+};
+
 const aboutInfo = (state = [], action) => {
   switch (action.type) {
     case types.GET_ABOUT:
@@ -50,4 +61,5 @@ export default combineReducers({
   works,
   currentProject,
   aboutInfo,
+  githubStats,
 });

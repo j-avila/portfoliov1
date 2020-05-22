@@ -1,6 +1,6 @@
 import Axios from "axios";
 import * as type from "../types";
-import { apiUrl } from "../envConst";
+import { apiUrl, statsUrl } from "../envConst";
 
 const headConfig = {
   headers: {
@@ -21,7 +21,6 @@ export const fetchWorks = () => {
     dispatch(loadingStatus(true));
     await Axios.get(url, headConfig)
       .then(({ data }) => {
-        // console.log(data);
         dispatch({
           type: type.FETCH_DATA,
           payload: data,
@@ -46,6 +45,26 @@ export const fetchAbout = () => {
         dispatch({
           type: type.GET_ABOUT,
           payload: data,
+        });
+        dispatch(loadingStatus(false));
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(loadingStatus(false));
+      });
+  };
+};
+
+export const fetchStats = () => {
+  const url = `${statsUrl}`;
+
+  return async (dispatch) => {
+    dispatch(loadingStatus(true));
+    Axios.get(url, headConfig)
+      .then((resp) => {
+        dispatch({
+          type: type.GET_STATS,
+          stats: resp,
         });
         dispatch(loadingStatus(false));
       })
