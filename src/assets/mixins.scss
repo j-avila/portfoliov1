@@ -33,7 +33,6 @@ $head: "producSansBold", sans-serif;
 $maxScreen: 800px;
 
 // mixins
-
 @mixin separator($width, $color, $margin) {
   &:after {
     content: "";

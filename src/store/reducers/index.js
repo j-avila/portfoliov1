@@ -56,8 +56,20 @@ const aboutInfo = (state = [], action) => {
   }
 };
 
+const mode = (state = false, action) => {
+  switch (action.type) {
+    case types.SET_MODE:
+      return {
+        mode: action.mode,
+      };
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   loading,
+  mode,
   works,
   currentProject,
   aboutInfo,

@@ -9,6 +9,11 @@ const headConfig = {
   },
 };
 
+export const switchMode = (mode) => ({
+  type: type.SET_MODE,
+  mode: mode,
+});
+
 const loadingStatus = (status) => ({
   type: type.LOADING,
   load: status,

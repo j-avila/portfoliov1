@@ -26,8 +26,6 @@ const statsArr = (code, design) => {
   let workStats = [];
   let arr = [code, design];
 
-  console.log(arr);
-
   workStats = arr.map((obj, index) => {
     return index === 0
       ? {
@@ -82,7 +80,7 @@ export const About = (props) => {
   }, [aboutData]);
 
   return (
-    <div className="about">
+    <section className="about">
       <div className="head">
         <h1>acerca de mi</h1>
         <p>Educación, Experiencia, Vida...</p>
@@ -124,6 +122,6 @@ export const About = (props) => {
           workStats.length >= 1 &&
           workStats.map((item) => <StatsCard key={item.type} data={item} />)}
       </section>
-    </div>
+    </section>
   );
 };

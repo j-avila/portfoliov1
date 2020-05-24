@@ -1,6 +1,9 @@
 @import "../../../assets/mixins.scss";
 
 .work {
+  max-width: unset;
+  padding: 0;
+  transition: 0.5sec all ease;
   div {
     max-width: $maxScreen;
     margin: 0 auto;
@@ -37,9 +40,10 @@
     }
   }
   &:hover {
-    background: lighten($text, 85%);
+    background: rgba(255, 255, 255, 0.404);
+    transition: 0.5sec all ease;
     a {
-      background: rgba(255, 255, 255, 0.657);
+      background: rgba(255, 255, 255, 0.2);
       transition: 0.5s all ease !important;
     }
     span {

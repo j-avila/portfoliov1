@@ -24,7 +24,7 @@ export const Home = (props) => {
   }, []);
 
   return (
-    <div id="home">
+    <section id="home">
       <div className="aboutme">
         <h1>
           {`Hola! Soy `}
@@ -37,6 +37,6 @@ export const Home = (props) => {
       <section>
         <Portfolio items={worksData} />
       </section>
-    </div>
+    </section>
   );
 };

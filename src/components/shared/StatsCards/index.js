@@ -38,13 +38,13 @@ const StatsCard = ({ data }) => {
           <span>
             <i className={`fa ${iconOne}`}></i>
             {dataOne}
-            {tipOne && <div className="tooltip">{tipOne}</div>}
+            {tipOne && <span className="tooltip">{tipOne}</span>}
           </span>
 
           <span>
             <i className={`fa ${iconTwo}`}></i>
             {dataTwo}
-            {tipTwo && <div className="tooltip">{tipTwo}</div>}
+            {tipTwo && <span className="tooltip">{tipTwo}</span>}
           </span>
         </p>
       </div>

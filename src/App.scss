@@ -35,11 +35,21 @@ body {
 .App {
   margin: 0 auto;
   overflow-x: hidden;
-  &.darkmode {
+  .darkmode {
     background: $text;
     color: white;
     a {
       color: lighten($text, 60%);
+      &:hover {
+        color: $highlight;
+      }
+    }
+    .work {
+      &:hover {
+        p {
+          color: $text;
+        }
+      }
     }
   }
 }
